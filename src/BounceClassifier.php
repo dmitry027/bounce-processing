@@ -191,6 +191,12 @@ class BounceClassifier implements IBounceClassifier
                 '5.1.0 - Unknown address error',
                 '501 Syntax error in parameters or arguments tnmpmscs',
                 '550 LTD BeGet: user not found',
+                '550 recipient <[^\s]+> denied',
+                '550 invalid mailbox \(call fwd\)',
+                '550(\s|-)5.1.1 <[^\s]+>: Recipient address rejected',
+                '550 5.1.1 RCP-P1 Domain facebook.com no longer available',
+                'Action: failed Final-Recipient: rfc822;[^\s]+ Status: 5.0.0',
+                '550 5.4.316 Message expired, connection refused',
             ],
 
             self::CATEGORY_INACTIVE_EMAIL => [
@@ -345,6 +351,7 @@ class BounceClassifier implements IBounceClassifier
                 '4\d\d [^\s]+: Recipient address rejected: User unknown in local recipient table',
                 '4\d\d [^\s]+: Recipient address rejected: User unknown in virtual mailbox table',
                 '451 [^\s]+: user unknown or mailbox full',
+                'Failed; 4.4.7 \(delivery time expired\)',
             ],
 
             self::CATEGORY_BLACKLISTED => [
@@ -369,6 +376,9 @@ class BounceClassifier implements IBounceClassifier
 
                 // mail.com
                 '554-No SMTP service 554-IP address is black listed',
+
+                // t-online.de
+                'refused to talk to me: 554 IP=[^\s]+ - A problem occurred',
             ],
 
             self::CATEGORY_BLACKLISTED . ':gmail' => [
@@ -585,6 +595,7 @@ class BounceClassifier implements IBounceClassifier
                 '554 We have reasons to believe this mail is SPAM',
                 '554 client\'s country is banned',
                 '554 Message refused',
+                '550-5.7.1 La tua e-mail è stata respinta perchè viola i criteri dell\'organizza',
             ],
 
             self::CATEGORY_LOOP_ERROR => [

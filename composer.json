@@ -1,6 +1,6 @@
 {
   "type": "library",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "name": "vda/bounce-processing",
   "description": "bounce email classification tools",
   "config": {
@@ -9,7 +9,7 @@
   "repositories": [
     {
       "type": "composer",
-      "url": "http://composer.vda-team.com/",
+      "url": "https://composer.vda-team.com/",
       "options": {
         "ssl": {
           "verify_peer": false
