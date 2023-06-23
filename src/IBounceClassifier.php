@@ -12,6 +12,7 @@ interface IBounceClassifier
     const CATEGORY_NO_SUCH_EMAIL     = 'nosuchemail';
     const CATEGORY_INACTIVE_EMAIL    = 'inactive';
     const CATEGORY_INVALID_EMAIL     = 'invalidemail';
+    const CATEGORY_SENDER_REJECTED   = 'senderrejected';
 
     const CATEGORY_BLACKLISTED       = 'blacklisted';
     const CATEGORY_BLOCKED_CONTENT   = 'blockedcontent';

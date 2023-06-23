@@ -197,6 +197,10 @@ class BounceClassifier implements IBounceClassifier
                 '550 5.1.1 RCP-P1 Domain facebook.com no longer available',
                 'Action: failed Final-Recipient: rfc822;[^\s]+ Status: 5.0.0',
                 '550 5.4.316 Message expired, connection refused',
+                '550 5.1.1 Domain does not exist',
+                '554 5.7.1 <[^\s]+>: Recipient address rejected: Access denied',
+                '554 5.7.1 <[^\s]+>: Recipient address rejected: user [^\s]+ does not exist',
+                '553 <[^\s]+> address unknown',
             ],
 
             self::CATEGORY_INACTIVE_EMAIL => [
@@ -230,12 +234,20 @@ class BounceClassifier implements IBounceClassifier
                 'Sorry, your message to [^\s]+ cannot be delivered. This mailbox is disabled',
                 'Receiver do\'nt want your email. Are You shure you have sent your Mail to the right adress',
                 '550 Mail to [^\s]+ has been suspended',
+                '550 5.2.1 <[^\s]+>: Recipient address rejected: This mailbox does not exist or has been closed down',
             ],
 
             self::CATEGORY_INVALID_EMAIL => [
                 'bad address syntax',
                 'Bad destination mailbox address',
                 '501 Invalid Address',
+                '553-5.1.3 The recipient address <[^\s]+> is not a valid',
+            ],
+
+            self::CATEGORY_SENDER_REJECTED => [
+                '550 5.2.0 [^\s]+ [^\s]+ Mittente rifiutato / Sender rejected \(in reply to end of DATA command\)',
+                '550-5.7.1 The user or domain that you are sending to \(or from\) has a policy that',
+                '550 5.7.1 Attenzione dominio non autorizzato - gcdp',
             ],
 
             self::CATEGORY_CONFIG_ERROR => [
@@ -352,6 +364,7 @@ class BounceClassifier implements IBounceClassifier
                 '4\d\d [^\s]+: Recipient address rejected: User unknown in virtual mailbox table',
                 '451 [^\s]+: user unknown or mailbox full',
                 'Failed; 4.4.7 \(delivery time expired\)',
+                '451 <[^\s]+> unable to verify address',
             ],
 
             self::CATEGORY_BLACKLISTED => [
