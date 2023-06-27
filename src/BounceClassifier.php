@@ -201,6 +201,16 @@ class BounceClassifier implements IBounceClassifier
                 '554 5.7.1 <[^\s]+>: Recipient address rejected: Access denied',
                 '554 5.7.1 <[^\s]+>: Recipient address rejected: user [^\s]+ does not exist',
                 '553 <[^\s]+> address unknown',
+                'The mail system <[^\s]+>: Message delivery failed',
+                '554 5.7.1 <[^\s]+>: Recipient address rejected: Messaggio rifiutato dal sistema. Indirizzo destinatario sconosciuto o non abilitato alla ricezione di posta non certificata',
+                '550-5.7.1 e-Mail respinta perché inviata ad unità organizzativa protetta',
+                '550 5.7.1 <[^\s]+>: Recipient address rejected: Recipient not available',
+                '450 4.1.1 <[^\s]+>: Recipient address rejected: unverified address: User unknown in virtual alias table',
+                '550-5.7.1 la tua mail è stata respinta perché viola i permessi accordati',
+                '550 mailbox for [^\s]+ does not exist here',
+                '550 <[^\s]+> recipient rejected',
+                'This is an automatically generated Delivery Status Notification. Delivery to the following recipients failed permanently:',
+                '553 mailbox name not allowed',
             ],
 
             self::CATEGORY_INACTIVE_EMAIL => [
@@ -262,6 +272,7 @@ class BounceClassifier implements IBounceClassifier
                 '550 Domain [^\s]+ has outgoing email disabled',
                 '550 sorry, this mailbox is currently disabled, try again',
                 '550 This domain is not in use and does not accept mail',
+                '521 5.3.0 Upstream error, please check',
             ],
 
             self::CATEGORY_RELAY_ERROR => [
@@ -289,6 +300,8 @@ class BounceClassifier implements IBounceClassifier
                 '501 This system is not configured to relay mail to',
                 '550 5.7.1 <[^\s]+>... we do not relay',
                 '553 sorry, relay of mail is not allowed',
+                'This is a permanent error; I\'ve given up. Sorry it didn\'t work out. <[^\s]+>: mail is looping',
+                '550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain',
             ],
         ],
 
@@ -336,6 +349,7 @@ class BounceClassifier implements IBounceClassifier
                 '451 4.3.0 Could not stream address',
                 '550 4.4.7 QUEUE.Expired; message expired',
                 '450 4.3.2 Service currently unavailable',
+                'refused to talk to me: 421 [^\s]+ Service not available - too busy',
 
                 // dns errors (!?)
                 '553 5.1.8 [^\s]+... Domain of sender address [^\s]+ does not exist',
@@ -609,6 +623,7 @@ class BounceClassifier implements IBounceClassifier
                 '554 client\'s country is banned',
                 '554 Message refused',
                 '550-5.7.1 La tua e-mail è stata respinta perchè viola i criteri dell\'organizza',
+                '554 Links were detected that may contain adult-related content',
             ],
 
             self::CATEGORY_LOOP_ERROR => [
