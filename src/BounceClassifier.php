@@ -211,6 +211,7 @@ class BounceClassifier implements IBounceClassifier
                 '550 <[^\s]+> recipient rejected',
                 'This is an automatically generated Delivery Status Notification. Delivery to the following recipients failed permanently:',
                 '553 mailbox name not allowed',
+                '550-Requested action not taken: mailbox unavailable'
             ],
 
             self::CATEGORY_INACTIVE_EMAIL => [
@@ -245,6 +246,7 @@ class BounceClassifier implements IBounceClassifier
                 'Receiver do\'nt want your email. Are You shure you have sent your Mail to the right adress',
                 '550 Mail to [^\s]+ has been suspended',
                 '550 5.2.1 <[^\s]+>: Recipient address rejected: This mailbox does not exist or has been closed down',
+                '550-5.2.1 The email account that you tried to reach is inactive',
             ],
 
             self::CATEGORY_INVALID_EMAIL => [
@@ -258,6 +260,7 @@ class BounceClassifier implements IBounceClassifier
                 '550 5.2.0 [^\s]+ [^\s]+ Mittente rifiutato / Sender rejected \(in reply to end of DATA command\)',
                 '550-5.7.1 The user or domain that you are sending to \(or from\) has a policy that',
                 '550 5.7.1 Attenzione dominio non autorizzato - gcdp',
+                'delivery not authorized, message refused (590)',
             ],
 
             self::CATEGORY_CONFIG_ERROR => [
@@ -302,6 +305,7 @@ class BounceClassifier implements IBounceClassifier
                 '553 sorry, relay of mail is not allowed',
                 'This is a permanent error; I\'ve given up. Sorry it didn\'t work out. <[^\s]+>: mail is looping',
                 '550-5.7.26 Unauthenticated email from yahoo.com is not accepted due to domain',
+                '550-5.7.1 L’utente non è autorizzato a comunicare all’esterno del dominio'
             ],
         ],
 
@@ -806,6 +810,7 @@ class BounceClassifier implements IBounceClassifier
                 'Delivery failed: Over quota',
                 'exceed the quota for the mailbox',
                 'errno=28',
+                '452-4.2.2 The recipient\'s inbox is out of storage space',
             ],
         ],
 
