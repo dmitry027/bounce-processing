@@ -211,7 +211,8 @@ class BounceClassifier implements IBounceClassifier
                 '550 <[^\s]+> recipient rejected',
                 'This is an automatically generated Delivery Status Notification. Delivery to the following recipients failed permanently:',
                 '553 mailbox name not allowed',
-                '550-Requested action not taken: mailbox unavailable'
+                '550-Requested action not taken: mailbox unavailable',
+                '550 5.1.1 Address does not exist',
             ],
 
             self::CATEGORY_INACTIVE_EMAIL => [
@@ -260,7 +261,7 @@ class BounceClassifier implements IBounceClassifier
                 '550 5.2.0 [^\s]+ [^\s]+ Mittente rifiutato / Sender rejected \(in reply to end of DATA command\)',
                 '550-5.7.1 The user or domain that you are sending to \(or from\) has a policy that',
                 '550 5.7.1 Attenzione dominio non autorizzato - gcdp',
-                'delivery not authorized, message refused (590)',
+                'delivery not authorized, message refused \(590\)',
             ],
 
             self::CATEGORY_CONFIG_ERROR => [
